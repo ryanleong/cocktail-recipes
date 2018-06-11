@@ -14,7 +14,7 @@ class Products extends Component {
     }
 
     renderProducts() {
-        return _.map(this.props.products.data, product => {
+        return _.map(this.props.products, product => {
             return (
                 <div className="product" key={product.id}>
                     <Link className="btn btn-primary" to={`/${product.id}`}>
@@ -28,7 +28,8 @@ class Products extends Component {
     }
 
     render() {
-        if (!this.props.products.data) {
+
+        if (!this.props.products) {
             return (
                 <div>Loading...</div>
             );

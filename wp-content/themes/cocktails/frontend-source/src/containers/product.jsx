@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import _ from 'lodash';
 
 import ProductDetails from '../components/product-details';
 import Cocktails from '../components/cocktails';
@@ -9,26 +10,31 @@ import { fetchProduct, clearProduct } from '../actions';
 class Product extends Component {
 
     componentDidMount() {
-        const { id } = this.props.match.params;
-        this.props.fetchProduct(id);
+        if(!this.props.products || _.isEmpty(this.props.products)) {
+            const { id } = this.props.match.params;
+            this.props.fetchProduct(id);
+        }
     }
 
-    componentWillUnmount() {
-        this.props.clearProduct();
-    }
+    // componentWillUnmount() {
+    //     this.props.clearProduct();
+    // }
 
     render() {
 
-        if (!this.props.product.data) {
+        if (_.isEmpty(this.props.products)) {
             return (
                 <div>Loading...</div>
             );
         }
 
+        const { id } = this.props.match.params;
+        const product = this.props.products[id];
+
         return(
             <div>
-                <ProductDetails data={this.props.product.data} />
-                <Cocktails data={this.props.product.data} />
+                <ProductDetails data={product} />
+                <Cocktails data={product} />
             </div>
         );
     }
@@ -36,7 +42,7 @@ class Product extends Component {
 
 function mapStateToProps(state) {
     return {
-        product: state.product
+        products: state.products
     }
 }
 
