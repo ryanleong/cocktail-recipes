@@ -12,27 +12,40 @@ import rootReducer from './reducers';
 import './styles/app.css';
 import Products from './containers/products';
 import Product from './containers/product';
+import Cocktails from './components/cocktails';
 import Cocktail from './containers/cocktail';
 
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
+    <div className="header">
+        Navigation
+    </div>
+    , document.getElementById('header')
+);
 
-    <div>
+ReactDOM.render(
+
     <Provider store={createStoreWithMiddleware(rootReducer)}>
         <BrowserRouter>
-
             <Switch>
-                <Route path="/cocktail/:id" component={Cocktail} />
+                <Route path="/cocktails/:id" component={Cocktail} />
+                <Route path="/cocktails" component={Cocktails} />
                 <Route path="/:id" component={Product} />
                 <Route path="/" component={Products} />
             </Switch>
 
         </BrowserRouter>
     </Provider>
-    </div>
 
 
     , document.getElementById('root')
+);
+
+ReactDOM.render(
+    <div className="footer">
+        Footer
+    </div>
+    , document.getElementById('footer')
 );

@@ -5,20 +5,20 @@ import { Link } from 'react-router-dom';
 
 import { fetchCocktails } from '../actions';
 
-class Cocktails extends Component {
+
+class CocktailsByProduct extends Component {
 
     componentDidMount() {
-        this.props.fetchCocktails();
+        const category = this.props.data.acf.category.slug;
+        this.props.fetchCocktails(category);
     }
 
     renderCocktailsList() {
         return _.map(this.props.cocktails, cocktail => {
             return (
-                <div key={cocktail.id}>
-                    <Link to={`/cocktails/${cocktail.id}`}>
-                        {cocktail.acf.name}
-                    </Link>
-                </div>
+                <li key={cocktail.id}>
+                    <Link to={`/cocktails/${cocktail.id}`}>{cocktail.acf.name}</Link>
+                </li>
             )
         });
     }
@@ -30,17 +30,19 @@ class Cocktails extends Component {
             );
         }
 
-        return (
-            <div>
-                <h1>Cocktails List</h1>
 
-                <div className="cocktails">
+        return(
+            <div>
+                Cocktails
+
+                <ul>
                     {this.renderCocktailsList()}
-                </div>
+                </ul>
             </div>
         );
     }
 }
+
 
 function mapStateToProps(state) {
     return {
@@ -48,4 +50,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchCocktails })(Cocktails);
+export default connect(mapStateToProps, { fetchCocktails })(CocktailsByProduct);

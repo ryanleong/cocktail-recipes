@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 
 import ProductDetails from '../components/product-details';
-import Cocktails from '../components/cocktails';
+import CocktailsByProduct from '../components/cocktails-by-product';
 
 import { fetchProduct } from '../actions';
 
@@ -30,7 +30,7 @@ class Product extends Component {
         return(
             <div>
                 <ProductDetails data={product} />
-                <Cocktails data={product} />
+                <CocktailsByProduct data={product} />
             </div>
         );
     }
