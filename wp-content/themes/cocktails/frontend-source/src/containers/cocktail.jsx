@@ -7,12 +7,16 @@ import { fetchCocktail } from '../actions';
 class Cocktail extends Component {
 
     componentDidMount() {
-        const { id } = this.props.match.params;
-        this.props.fetchCocktail(id);
+
+        if(!this.props.cocktails || _.isEmpty(this.props.cocktails)) {
+            const { id } = this.props.match.params;
+            this.props.fetchCocktail(id);
+        }
+
     }
 
-    renderIngredients() {
-        return _.map(this.props.cocktail.data.acf.ingredients, ingredients => {
+    renderIngredients(cocktail) {
+        return _.map(cocktail.acf.ingredients, ingredients => {
 
             return (
                 <li key={ingredients.ingredient}>
@@ -24,21 +28,25 @@ class Cocktail extends Component {
 
     render() {
 
-        if (!this.props.cocktail.data) {
+        const { id } = this.props.match.params;
+
+        if (!this.props.cocktails[id]) {
             return (
                 <div>Loading...</div>
             );
         }
 
+        const cocktail = this.props.cocktails[id];
+
         return(
             <div>
-                <h1>{this.props.cocktail.data.acf.name}</h1>
+                <h1>{cocktail.acf.name}</h1>
 
                 <h3>Ingredients</h3>
-                {this.renderIngredients()}
+                {this.renderIngredients(cocktail)}
 
                 <h3>Instructions</h3>
-                <p>{this.props.cocktail.data.acf.instructions}</p>
+                <p>{cocktail.acf.instructions}</p>
             </div>
         );
     }
@@ -46,7 +54,7 @@ class Cocktail extends Component {
 
 function mapStateToProps(state) {
     return {
-        cocktail: state.cocktail
+        cocktails: state.cocktails
     }
 }
 

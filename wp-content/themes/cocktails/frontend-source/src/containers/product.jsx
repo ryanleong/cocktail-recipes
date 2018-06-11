@@ -5,7 +5,7 @@ import _ from 'lodash';
 import ProductDetails from '../components/product-details';
 import Cocktails from '../components/cocktails';
 
-import { fetchProduct, clearProduct } from '../actions';
+import { fetchProduct } from '../actions';
 
 class Product extends Component {
 
@@ -16,19 +16,15 @@ class Product extends Component {
         }
     }
 
-    // componentWillUnmount() {
-    //     this.props.clearProduct();
-    // }
-
     render() {
+        const { id } = this.props.match.params;
 
-        if (_.isEmpty(this.props.products)) {
+        if (!this.props.products[id]) {
             return (
                 <div>Loading...</div>
             );
         }
 
-        const { id } = this.props.match.params;
         const product = this.props.products[id];
 
         return(
@@ -46,4 +42,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchProduct, clearProduct })(Product);
+export default connect(mapStateToProps, { fetchProduct })(Product);

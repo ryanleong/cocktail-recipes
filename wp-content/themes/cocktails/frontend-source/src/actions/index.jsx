@@ -4,7 +4,6 @@ const BASE_URL = `http://localhost/cocktail-recipes/wp-json`
 
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 export const FETCH_PRODUCT = 'FETCH_PRODUCT';
-export const CLEAR_PRODUCT = 'CLEAR_PRODUCT';
 
 export const FETCH_COCKTAILS = 'FETCH_COCKTAILS';
 export const FETCH_COCKTAIL = 'FETCH_COCKTAIL';
@@ -21,13 +20,6 @@ export function fetchProducts(category) {
     return {
         type: FETCH_PRODUCTS,
         payload: request
-    }
-}
-
-export function clearProduct() {
-    return {
-        type: CLEAR_PRODUCT,
-        payload: {}
     }
 }
 
