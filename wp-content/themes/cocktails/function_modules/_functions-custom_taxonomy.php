@@ -14,7 +14,9 @@
 				'rewrite' => array(
 					'slug' => 'taxonomy_name_slug', // This controls the base slug that will display before each term
 					'with_front' => false // Don't display the category base before
-				)
+				),
+				'show_in_rest' => true,
+				'rest_base' => 'product_cat',
 			)
 		);
 
@@ -28,7 +30,9 @@
 				'rewrite' => array(
 					'slug' => 'taxonomy_name_slug', // This controls the base slug that will display before each term
 					'with_front' => false // Don't display the category base before
-				)
+				),
+				'show_in_rest' => true,
+				'rest_base' => 'distillery',
 			)
 		);
 

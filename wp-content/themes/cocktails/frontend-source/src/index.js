@@ -11,8 +11,10 @@ import rootReducer from './reducers';
 
 import './styles/app.css';
 import Landing from './containers/landing';
+import Product from './containers/product';
+import Cocktail from './containers/cocktail';
 
-// const store = createStore(rootReducer);
+
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
@@ -22,6 +24,8 @@ ReactDOM.render(
         <BrowserRouter>
 
             <Switch>
+                <Route path="/cocktail/:id" component={Cocktail} />
+                <Route path="/:id" component={Product} />
                 <Route path="/" component={Landing} />
             </Switch>
 
