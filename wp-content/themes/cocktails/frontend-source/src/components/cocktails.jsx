@@ -24,7 +24,6 @@ class Cocktails extends Component {
     }
 
     render() {
-
         if (!this.props.cocktails) {
             return (
                 <div>Loading...</div>

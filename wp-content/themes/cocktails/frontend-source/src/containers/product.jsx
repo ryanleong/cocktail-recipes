@@ -4,13 +4,17 @@ import {connect} from 'react-redux';
 import ProductDetails from '../components/product-details';
 import Cocktails from '../components/cocktails';
 
-import { fetchProduct } from '../actions';
+import { fetchProduct, clearProduct } from '../actions';
 
 class Product extends Component {
 
     componentDidMount() {
         const { id } = this.props.match.params;
         this.props.fetchProduct(id);
+    }
+
+    componentWillUnmount() {
+        this.props.clearProduct();
     }
 
     render() {
@@ -26,7 +30,6 @@ class Product extends Component {
                 <ProductDetails data={this.props.product.data} />
                 <Cocktails data={this.props.product.data} />
             </div>
-
         );
     }
 }
@@ -37,4 +40,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchProduct })(Product);
+export default connect(mapStateToProps, { fetchProduct, clearProduct })(Product);

@@ -10,7 +10,7 @@ import rootReducer from './reducers';
 // import registerServiceWorker from './registerServiceWorker';
 
 import './styles/app.css';
-import Landing from './containers/landing';
+import Products from './containers/products';
 import Product from './containers/product';
 import Cocktail from './containers/cocktail';
 
@@ -26,7 +26,7 @@ ReactDOM.render(
             <Switch>
                 <Route path="/cocktail/:id" component={Cocktail} />
                 <Route path="/:id" component={Product} />
-                <Route path="/" component={Landing} />
+                <Route path="/" component={Products} />
             </Switch>
 
         </BrowserRouter>

@@ -4,11 +4,13 @@ const BASE_URL = `http://localhost/cocktail-recipes/wp-json`
 
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 export const FETCH_PRODUCT = 'FETCH_PRODUCT';
+export const CLEAR_PRODUCT = 'CLEAR_PRODUCT';
+
 export const FETCH_COCKTAILS = 'FETCH_COCKTAILS';
-// export const FETCH_RECIPE = 'FETCH_RECIPE';
+export const FETCH_COCKTAIL = 'FETCH_COCKTAIL';
 
 export function fetchProducts(category) {
-    let url = `${BASE_URL}/wp/v2/products`;
+    var url = `${BASE_URL}/wp/v2/products`;
 
     if(category) {
         url = `${url}?filter[product_cat]=${category}`
@@ -22,6 +24,13 @@ export function fetchProducts(category) {
     }
 }
 
+export function clearProduct() {
+    return {
+        type: CLEAR_PRODUCT,
+        payload: {}
+    }
+}
+
 export function fetchProduct(id) {
     if(!id) {
         return {
@@ -30,7 +39,7 @@ export function fetchProduct(id) {
         }
     }
 
-    let url = `${BASE_URL}/wp/v2/products/${id}`;
+    var url = `${BASE_URL}/wp/v2/products/${id}`;
     const request = axios.get(url);
 
     return {
@@ -40,7 +49,7 @@ export function fetchProduct(id) {
 }
 
 export function fetchCocktails(category) {
-    let url = `${BASE_URL}/acf/v3/cocktails`;
+    var url = `${BASE_URL}/acf/v3/cocktails`;
 
     if(category) {
         url = `${url}?filter[product_cat]=${category}`
@@ -50,6 +59,23 @@ export function fetchCocktails(category) {
 
     return {
         type: FETCH_COCKTAILS,
+        payload: request
+    }
+}
+
+export function fetchCocktail(id) {
+    if(!id) {
+        return {
+            type: FETCH_PRODUCT,
+            payload: {}
+        }
+    }
+
+    var url = `${BASE_URL}/wp/v2/cocktails/${id}`;
+    const request = axios.get(url);
+
+    return {
+        type: FETCH_COCKTAIL,
         payload: request
     }
 }
