@@ -11,6 +11,6 @@
 	// the_content();
 ?>
 
-hello
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/wp-content/themes/cocktails/manifest.json"><link rel="shortcut icon" href="/wp-content/themes/cocktails/favicon.ico"><title>Cocktails</title><link href="/wp-content/themes/cocktails/static/css/main.d41d8cd9.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="header"></div><div id="root"></div><div id="footer"></div><script type="text/javascript" src="/wp-content/themes/cocktails/static/js/main.79b4013f.js"></script></body></html>
 
 <?php get_footer(); ?>

@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 
-import ProductDetails from '../components/product-details';
-import CocktailsByProduct from '../components/cocktails-by-product';
+import ProductDetails from './product-details';
+import CocktailsByProduct from '../cocktails/cocktails-by-product';
 
-import { fetchProduct } from '../actions';
+import { fetchProduct } from '../../actions';
 
 class Product extends Component {
 

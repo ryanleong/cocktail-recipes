@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 
-import { fetchCocktail } from '../actions';
+import { fetchCocktail } from '../../actions';
 
 class Cocktail extends Component {
 

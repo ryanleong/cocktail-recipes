@@ -3,22 +3,22 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
-import { fetchCocktails } from '../actions';
+import { fetchCocktails } from '../../actions';
 
-
-class CocktailsByProduct extends Component {
+class Cocktails extends Component {
 
     componentDidMount() {
-        const category = this.props.data.acf.category.slug;
-        this.props.fetchCocktails(category);
+        this.props.fetchCocktails();
     }
 
     renderCocktailsList() {
         return _.map(this.props.cocktails, cocktail => {
             return (
-                <li key={cocktail.id}>
-                    <Link to={`/cocktails/${cocktail.id}`}>{cocktail.acf.name}</Link>
-                </li>
+                <div key={cocktail.id}>
+                    <Link to={`/cocktails/${cocktail.id}`}>
+                        {cocktail.acf.name}
+                    </Link>
+                </div>
             )
         });
     }
@@ -30,19 +30,17 @@ class CocktailsByProduct extends Component {
             );
         }
 
-
-        return(
+        return (
             <div>
-                Cocktails
+                <h1>Cocktails List</h1>
 
-                <ul>
+                <div className="cocktails">
                     {this.renderCocktailsList()}
-                </ul>
+                </div>
             </div>
         );
     }
 }
-
 
 function mapStateToProps(state) {
     return {
@@ -50,4 +48,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchCocktails })(CocktailsByProduct);
+export default connect(mapStateToProps, { fetchCocktails })(Cocktails);

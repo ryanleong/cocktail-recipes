@@ -10,10 +10,10 @@ import rootReducer from './reducers';
 // import registerServiceWorker from './registerServiceWorker';
 
 import './styles/app.css';
-import Products from './containers/products';
-import Product from './containers/product';
-import Cocktails from './components/cocktails';
-import Cocktail from './containers/cocktail';
+import Products from './components/products/products';
+import Product from './components/products/product';
+import Cocktails from './components/cocktails/cocktails';
+import Cocktail from './components/cocktails/cocktail';
 
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);

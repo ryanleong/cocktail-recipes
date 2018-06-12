@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './product-details.css';
 
 class ProductDetails extends Component {
 
@@ -7,7 +8,7 @@ class ProductDetails extends Component {
         const product = this.props.data;
 
         return(
-            <div>
+            <div className="product-details">
                 <h3>{product.title.rendered}</h3>
                 <img src={product.acf.image} alt={product.title.rendered}/>
             </div>

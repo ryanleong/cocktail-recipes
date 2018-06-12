@@ -3,9 +3,11 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
-import ProductDetails from '../components/product-details';
+import ProductDetails from './product-details';
 
-import { fetchProducts } from '../actions';
+import { fetchProducts } from '../../actions';
+
+import './products.css';
 
 class Products extends Component {
 
@@ -36,7 +38,7 @@ class Products extends Component {
         }
 
         return (
-            <div>
+            <div className="products">
                 {this.renderProducts()}
             </div>
         );
