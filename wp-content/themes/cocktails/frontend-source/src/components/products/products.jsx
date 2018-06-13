@@ -7,7 +7,7 @@ import ProductDetails from './product-details';
 
 import { fetchProducts } from '../../actions';
 
-import './products.css';
+import './products.scss';
 
 class Products extends Component {
 

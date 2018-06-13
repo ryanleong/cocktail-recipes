@@ -9,7 +9,7 @@ import rootReducer from './reducers';
 
 // import registerServiceWorker from './registerServiceWorker';
 
-import './styles/app.css';
+import './index.scss';
 import Products from './components/products/products';
 import Product from './components/products/product';
 import Cocktails from './components/cocktails/cocktails';
