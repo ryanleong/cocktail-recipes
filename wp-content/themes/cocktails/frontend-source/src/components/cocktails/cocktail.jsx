@@ -30,7 +30,13 @@ class Cocktail extends Component {
 
         const { id } = this.props.match.params;
 
-        if (!this.props.cocktails[id]) {
+        if (this.props.cocktails.error) {
+            return (
+                <div>Unable to load data from server.</div>
+            );
+        }
+
+        else if (!this.props.cocktails[id]) {
             return (
                 <div>Loading...</div>
             );

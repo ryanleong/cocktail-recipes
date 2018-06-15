@@ -19,11 +19,18 @@ class Product extends Component {
     render() {
         const { id } = this.props.match.params;
 
-        if (!this.props.products[id]) {
+        if (this.props.products.error) {
+            return (
+                <div>Unable to load data from server.</div>
+            );
+        }
+        else if (!this.props.products[id]) {
             return (
                 <div>Loading...</div>
             );
         }
+
+
 
         const product = this.props.products[id];
 

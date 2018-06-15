@@ -3,6 +3,11 @@ import _ from 'lodash';
 
 export default function(state = {}, action) {
 
+    
+    if (action.error) {
+        return action;
+    }
+    
     switch(action.type) {
         case FETCH_COCKTAILS:
             return _.mapKeys(action.payload.data, 'id');

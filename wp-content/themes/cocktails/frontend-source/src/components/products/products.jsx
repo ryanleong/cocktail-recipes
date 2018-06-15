@@ -31,7 +31,12 @@ class Products extends Component {
 
     render() {
 
-        if (!this.props.products) {
+        if (this.props.products.error) {
+            return (
+                <div>Unable to load data from server.</div>
+            );
+        }
+        else if (!this.props.products) {
             return (
                 <div>Loading...</div>
             );

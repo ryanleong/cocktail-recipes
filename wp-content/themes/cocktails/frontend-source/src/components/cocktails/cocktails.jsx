@@ -24,7 +24,12 @@ class Cocktails extends Component {
     }
 
     render() {
-        if (!this.props.cocktails) {
+        if (this.props.cocktails.error) {
+            return (
+                <div>Unable to load data from server.</div>
+            );
+        }
+        else if (!this.props.cocktails) {
             return (
                 <div>Loading...</div>
             );
