@@ -1,0 +1,214 @@
+/////////////////////////////////////////////
+// MixIns
+/////////////////////////////////////////////
+@mixin transition($duration: 0.3, $delay: 0, $type: all) {
+	transition: #{$type} #{$duration}s ease-in-out;
+	transition-delay: #{$delay}s;
+}
+
+@mixin v-align($top: 50%) {
+	transform: translateY(-50%);
+	top: #{$top};
+}
+
+@mixin h-align($left: 50%) {
+	transform: translateX(-50%);
+	left: #{$left};
+}
+
+@mixin c-align($left: 50%, $top: 50%) {
+	transform: translateX(-50%) translateY(-50%);
+	left: #{$left};
+	top: #{$top};
+}
+
+@mixin at2x($path, $ext: "jpg") {
+	$at1x_path: "#{$path}.#{$ext}";
+	$at2x_path: "#{$path}@2x.#{$ext}";
+	background-image: url("#{$at1x_path}");
+
+	@media all and (-webkit-min-device-pixel-ratio : 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+		background-image: url("#{$at2x_path}");
+	}
+}
+
+
+/////////////////////////////////////////////
+// Typeface
+/////////////////////////////////////////////
+@mixin fontsize($pixels) {
+	font-size: #{$pixels / $base-font-size}rem;
+}
+
+@mixin letterspacing($pixels: 1) {
+	letter-spacing: #{$pixels / $base-font-size}rem;
+}
+
+@mixin lineheight($fontsize, $multiplier: 1.38) {
+	line-height: #{$fontsize / $base-font-size * $multiplier}rem;
+}
+
+
+/////////////////////////////////////////////
+// Flex
+/////////////////////////////////////////////
+@mixin flex($justify: '', $align: '', $wrap: '', $direction: '') {
+	display: flex;
+
+	@if $justify != '' {
+		justify-content: $justify;
+	}
+
+	@if	$align != '' {
+		align-items: $align;
+	}
+
+	@if $wrap != '' {
+		flex-wrap: $wrap;
+	}
+
+	@if $direction != '' {
+		flex-direction: $direction;
+	}
+}
+
+
+/////////////////////////////////////////////
+// Grid Container
+/////////////////////////////////////////////
+@mixin display-grid($columns: '') {
+	display: grid;
+	display: -ms-grid;
+
+	@if $columns != '' {
+		@include grid-template-columns($columns);
+	}
+}
+
+@mixin grid-template-columns($columns) {
+	grid-template-columns: #{$columns};
+	-ms-grid-columns: #{$columns};
+}
+
+@mixin grid-gap($rowGap: '', $colGap: '') {
+
+	// Does not work with IE. Require work around such as:
+	// @include ie10plus() {
+	// 	margin-right: 10px;
+
+	// 	&:last-child {
+	// 		margin-right: 0;
+	// 	}
+	// }
+
+	@if $rowGap != '' and $colGap != '' {
+		grid-gap: $rowGap $colGap;
+	}
+	@else {
+
+		@if $rowGap != '' {
+			grid-row-gap: $rowGap;
+		}
+
+		@if $colGap != '' {
+			grid-column-gap: $colGap;
+		}
+
+	}
+}
+
+
+/////////////////////////////////////////////
+// Grid Item
+/////////////////////////////////////////////
+@mixin grid-item-align($direction: 'row', $start: '', $end: '') {
+
+	@if $start != '' and $end != '' {
+		grid-#{$direction}: #{$start} / #{$end};
+
+        -ms-grid-#{$direction}: $start;
+        -ms-grid-#{$direction}-span: $end - 1;
+	}
+	@else {
+
+		@if $start != '' {
+			grid-#{$direction}-start: $start;
+			-ms-grid-#{$direction}: $start;
+		}
+
+		@if $end != '' {
+			grid-#{$direction}-end: $end;
+			-ms-grid-#{$direction}-span: $end - 1;
+		}
+
+	} 
+}
+
+@mixin grid-column($start: '', $end: '') {
+	@include grid-item-align(column, $start, $end);
+}
+
+@mixin grid-row($start: '', $end: '') {
+	@include grid-item-align(row, $start, $end);
+}
+
+
+
+/////////////////////////////////////////////
+// Media Queries
+/////////////////////////////////////////////
+@mixin media-breakpoint-up($media) {
+	@if $media == xs {
+		@media (min-width: 375px) { @content; }
+	}
+	@else if $media == sm {
+		@media (min-width: 576px) { @content; }
+	}
+	@else if $media == md {
+		@media (min-width: 768px) { @content; }
+	}
+	@else if $media == lg {
+		@media (min-width: 992px) { @content; }
+	}
+	@else if $media == xl {
+		@media (min-width: 1200px) { @content; }
+	}
+	@else if $media == xxl {
+		@media (min-width: 1780px) { @content; }
+	}
+}
+
+
+@mixin media-breakpoint-down($media) {
+	@if $media == xs {
+		@media (max-width: 374.9px) { @content; }
+	}
+	@else if $media == sm {
+		@media (max-width: 575.9px) { @content; }
+	}
+	@else if $media == md {
+		@media (max-width: 767.9px) { @content; }
+	}
+	@else if $media == lg {
+		@media (max-width: 991.9px) { @content; }
+	}
+	@else if $media == xl {
+		@media (max-width: 1199.9px) { @content; }
+	}
+	@else if $media == xxl {
+		@media (max-width: 1779.9px) { @content; }
+	}
+}
+
+@mixin ie10plus() {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+/////////////////////////////////////////////
+// Functions
+/////////////////////////////////////////////
+@function em($pixels, $context: 16) {
+	@return #{$pixels/$context}rem;
+}

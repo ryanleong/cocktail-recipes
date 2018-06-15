@@ -1,0 +1,42 @@
+#page-wrapper {
+	min-height: calc(100vh - #{$footer-height});
+	width: 100%;
+	overflow-x: hidden;
+}
+
+////////////////////////////////////
+// Button
+////////////////////////////////////
+.button, .button:hover, .button:visited, .button:active {
+	border: 1px solid #{$btn-border-color};
+	color: #{$btn-text-color};
+	background-color: #{$btn-color};
+	cursor: pointer;
+	display: inline-block;
+	padding: 0 35px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	height: 40px;
+	line-height: 39px;
+}
+
+
+////////////////////////////////////
+// Utilities
+////////////////////////////////////
+
+// Container
+.cont {
+	padding: 0 15px;
+	
+	@include media-breakpoint-up(sm) {
+		padding: 0 30px;
+	}
+
+    @include media-breakpoint-up(xl) {
+		margin: 0 auto;
+		max-width: 1140px;
+		padding: 0;
+    }
+}

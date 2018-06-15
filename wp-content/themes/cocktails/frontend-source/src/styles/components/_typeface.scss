@@ -1,0 +1,174 @@
+// Appareo
+@font-face {
+	font-family: 'Appareo';
+	src: url('#{$base_url}/fonts/Appareo-Black.eot');
+	src: url('#{$base_url}/fonts/Appareo-Black.woff') format('woff'), url('#{$base_url}/fonts/Appareo-Black.ttf') format('truetype'), url('#{$base_url}/fonts/Appareo-Black.svg') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+
+// Livory
+@font-face {
+	font-family: 'Livory';
+	src: url('#{$base_url}/fonts/Livory-Regular.eot');
+	src: url('#{$base_url}/fonts/Livory-Regular.woff') format('woff'), url('#{$base_url}/fonts/Livory-Regular.ttf') format('truetype'), url('#{$base_url}/fonts/Livory-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Livory';
+	src: url('#{$base_url}/fonts/Livory-RegularItalic.eot');
+	src: url('#{$base_url}/fonts/Livory-RegularItalic.woff') format('woff'), url('#{$base_url}/fonts/Livory-RegularItalic.ttf') format('truetype'), url('#{$base_url}/fonts/Livory-RegularItalic.svg') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Livory';
+	src: url('#{$base_url}/fonts/Livory-Bold.eot');
+	src: url('#{$base_url}/fonts/Livory-Bold.woff') format('woff'), url('#{$base_url}/fonts/Livory-Bold.ttf') format('truetype'), url('#{$base_url}/fonts/Livory-Bold.svg') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Livory';
+	src: url('#{$base_url}/fonts/Livory-BoldItalic.eot');
+	src: url('#{$base_url}/fonts/Livory-BoldItalic.woff') format('woff'), url('#{$base_url}/fonts/Livory-BoldItalic.ttf') format('truetype'), url('#{$base_url}/fonts/Livory-BoldItalic.svg') format('svg');
+	font-weight: bold;
+	font-style: italic;
+}
+
+// Gotham
+@font-face {
+	font-family: 'Gotham';
+	src: url('#{$base_url}/fonts/GothamBook.eot');
+	src: url('#{$base_url}/fonts/GothamBook.woff') format('woff'), url('#{$base_url}/fonts/GothamBook.ttf') format('truetype'), url('#{$base_url}/fonts/GothamBook.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('#{$base_url}/fonts/GothamBold.eot');
+	src: url('#{$base_url}/fonts/GothamBold.woff') format('woff'), url('#{$base_url}/fonts/GothamBold.ttf') format('truetype'), url('#{$base_url}/fonts/GothamBold.svg') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('#{$base_url}/fonts/GothamBold-Italic.eot');
+	src: url('#{$base_url}/fonts/GothamBold-Italic.woff') format('woff'), url('#{$base_url}/fonts/GothamBold-Italic.ttf') format('truetype'), url('#{$base_url}/fonts/GothamBold-Italic.svg') format('svg');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('#{$base_url}/fonts/GothamBook-Italic.eot');
+	src: url('#{$base_url}/fonts/GothamBook-Italic.woff') format('woff'), url('#{$base_url}/fonts/GothamBook-Italic.ttf') format('truetype'), url('#{$base_url}/fonts/GothamBook-Italic.svg') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('#{$base_url}/fonts/GothamMedium.eot');
+	src: url('#{$base_url}/fonts/GothamMedium.woff') format('woff'), url('#{$base_url}/fonts/GothamMedium.ttf') format('truetype'), url('#{$base_url}/fonts/GothamMedium.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('#{$base_url}/fonts/GothamMedium-Italic.eot');
+	src: url('#{$base_url}/fonts/GothamMedium-Italic.woff') format('woff'), url('#{$base_url}/fonts/GothamMedium-Italic.ttf') format('truetype'), url('#{$base_url}/fonts/GothamMedium-Italic.svg') format('svg');
+	font-weight: 500;
+	font-style: italic;
+}
+
+
+html, body, body * {
+	font-family: 'Gotham', sans-serif;
+	font-weight: 400;
+	font-size: #{$base-font-size}px;
+	@include letterspacing(1);
+	@include lineheight($base-font-size, 1.35);
+}
+
+h2, h3, h4, h5 {
+	font-family: 'Livory', sans-serif;
+}
+
+h1 {
+	@include fontsize(65);
+	@include letterspacing(3);
+	@include lineheight(65, 1.25);
+}
+
+h2 {
+	@include fontsize(41);
+	@include letterspacing(3);
+	@include lineheight(41, 1.35);
+}
+
+h3 {
+	@include fontsize(20);
+	@include letterspacing(2);
+	@include lineheight(20, 1.35);
+}
+
+h4 {
+	@include fontsize(18);
+	@include letterspacing(0.8);
+	@include lineheight(18, 1.35);
+}
+
+h5 {
+	@include fontsize(15);
+	@include letterspacing(0.5);
+	@include lineheight(15, 2);
+}
+
+h6 {
+	@include fontsize(14);
+	@include letterspacing(0.5);
+	@include lineheight(14, 2);
+}
+
+p {
+	@include fontsize($base-font-size);
+	@include letterspacing(0.05);
+	@include lineheight($base-font-size, 2);
+}
+
+
+a, a:hover, a:active, a:visited {
+	@include fontsize($base-font-size);
+	@include letterspacing(0.05);
+	@include lineheight($base-font-size, 2);
+	text-decoration: none;
+	color: $blue;
+}
+
+span {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
+}
+
+strong, .bold {
+	font-weight: 600;
+}
+
+.regular {
+	font-weight: 400;
+}
+
+em, .italic {
+	font-style: italic;
+}

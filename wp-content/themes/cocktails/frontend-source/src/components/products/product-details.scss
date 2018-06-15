@@ -1,9 +1,37 @@
-.product-details {
-    max-width: 300px;
-    margin: 0 15px;
-}
+@import '../../styles/libs/_mixin.scss';
 
-    .product-details img {
-        width: 100%;
-        height: auto;
+.product {
+    margin-bottom: 25px;
+    width: 100%;
+
+    a {
+        display: block;
     }
+    
+    &-img {
+        width: 100%;
+        height: 332px;
+
+        @include media-breakpoint-up(sm) {
+            height: 260px;
+        }
+
+        @include media-breakpoint-up(md) {
+            height: 245px;
+        }
+
+        @include media-breakpoint-up(md) {
+            height: 255px;
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &-name, &-distiller {
+        text-align: center;
+    }
+}

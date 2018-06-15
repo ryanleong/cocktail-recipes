@@ -18,12 +18,12 @@ import Cocktail from './components/cocktails/cocktail';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-ReactDOM.render(
-    <div className="header">
-        Navigation
-    </div>
-    , document.getElementById('header')
-);
+// ReactDOM.render(
+//     <div className="header">
+//         Navigation
+//     </div>
+//     , document.getElementById('header')
+// );
 
 ReactDOM.render(
 
@@ -43,9 +43,9 @@ ReactDOM.render(
     , document.getElementById('root')
 );
 
-ReactDOM.render(
-    <div className="footer">
-        Footer
-    </div>
-    , document.getElementById('footer')
-);
+// ReactDOM.render(
+//     <div className="footer">
+//         Footer
+//     </div>
+//     , document.getElementById('footer')
+// );

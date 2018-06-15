@@ -8,9 +8,13 @@ class ProductDetails extends Component {
         const product = this.props.data;
 
         return(
-            <div className="product-details">
-                <h3>{product.title.rendered}</h3>
-                <img src={product.acf.image} alt={product.title.rendered}/>
+            <div className="product">
+                <div className="product-img">
+                    <img src={product.acf.image} alt={product.title.rendered} />
+                </div>
+
+                <h3 className="product-name">{product.title.rendered}</h3>
+                <h5 className="product-distiller">Melbourne Moonshine</h5>
             </div>
         );
     }

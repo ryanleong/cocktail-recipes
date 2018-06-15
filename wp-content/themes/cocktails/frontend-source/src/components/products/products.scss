@@ -1,4 +1,25 @@
+@import '../../styles/libs/_mixin.scss';
+
 .products {
-    display: flex;
-    justify-content: center;
+
+    &-header {
+
+    }
+
+    display: grid;
+    grid-column-gap: 15px;
+
+    @include media-breakpoint-up(sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-breakpoint-up(md) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
 }
