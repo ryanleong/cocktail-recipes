@@ -38,5 +38,14 @@
 		margin: 0 auto;
 		max-width: 1140px;
 		padding: 0;
-    }
+	}
+	
+
+	&.alt {
+		padding: 0;
+	
+		@include media-breakpoint-up(sm) {
+			padding: 0;
+		}
+	}
 }

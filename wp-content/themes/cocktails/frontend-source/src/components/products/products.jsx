@@ -16,12 +16,24 @@ class Products extends Component {
     }
 
     renderProducts() {
-        return _.map(this.props.products, product => {
+        
+        const arrayFromObj = _.values(this.props.products); // convert object to array
+        const sections = _.chunk(arrayFromObj, 10); // Split into chunks of 10 (multi dimensional array)
+        
+        return _.map(sections, (productWrapper, index) => { // Interate throw top level array
+
             return (
-                <Link to={`/${product.id}`} key={product.id}>
-                    <ProductDetails data={product} />
-                </Link>
+                <div className="products-wrapper">
+                    { 
+                        _.map(productWrapper, product => { // interate through 2nd level array
+                            return (
+                                <ProductDetails data={product} key={product.id} />
+                            )
+                        })
+                    }
+                </div>
             )
+
         });
     }
 
@@ -45,82 +57,8 @@ class Products extends Component {
                     <h1>Cocktails for your Spirits</h1>
                 </div> */}
 
-                <div className="products cont">
+                <div className="products cont alt">
                     {this.renderProducts()}
-
-
-                    
-                    <Link to={`/adsfsd`}>
-                        <div className="product">
-                            <div className="product-img">
-                                <img src="http://via.placeholder.com/350x150" alt="asdfds" />
-                            </div>
-
-                            <h3 className="product-name">Test title</h3>
-                            <h5 className="product-distiller">Test Distiller</h5>
-                        </div>
-                    </Link>
-                    <Link to={`/adsfsd`}>
-                        <div className="product">
-                            <div className="product-img">
-                                <img src="http://via.placeholder.com/350x150" alt="asdfds" />
-                            </div>
-
-                            <h3 className="product-name">Test title</h3>
-                            <h5 className="product-distiller">Test Distiller</h5>
-                        </div>
-                    </Link>
-                    <Link to={`/adsfsd`}>
-                        <div className="product">
-                            <div className="product-img">
-                                <img src="http://via.placeholder.com/350x150" alt="asdfds" />
-                            </div>
-
-                            <h3 className="product-name">Test title</h3>
-                            <h5 className="product-distiller">Test Distiller</h5>
-                        </div>
-                    </Link>
-                    <Link to={`/adsfsd`}>
-                        <div className="product">
-                            <div className="product-img">
-                                <img src="http://via.placeholder.com/350x150" alt="asdfds" />
-                            </div>
-
-                            <h3 className="product-name">Test title</h3>
-                            <h5 className="product-distiller">Test Distiller</h5>
-                        </div>
-                    </Link>
-                    <Link to={`/adsfsd`}>
-                        <div className="product">
-                            <div className="product-img">
-                                <img src="http://via.placeholder.com/350x150" alt="asdfds" />
-                            </div>
-
-                            <h3 className="product-name">Test title</h3>
-                            <h5 className="product-distiller">Test Distiller</h5>
-                        </div>
-                    </Link>
-                    <Link to={`/adsfsd`}>
-                        <div className="product">
-                            <div className="product-img">
-                                <img src="http://via.placeholder.com/350x150" alt="asdfds" />
-                            </div>
-
-                            <h3 className="product-name">Test title</h3>
-                            <h5 className="product-distiller">Test Distiller</h5>
-                        </div>
-                    </Link>
-                    <Link to={`/adsfsd`}>
-                        <div className="product">
-                            <div className="product-img">
-                                <img src="http://via.placeholder.com/350x150" alt="asdfds" />
-                            </div>
-
-                            <h3 className="product-name">Test title</h3>
-                            <h5 className="product-distiller">Test Distiller</h5>
-                        </div>
-                    </Link>
-
 
                 </div>
             </div>
