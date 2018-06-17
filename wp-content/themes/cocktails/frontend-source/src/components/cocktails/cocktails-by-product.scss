@@ -1,0 +1,68 @@
+@import '../../styles/libs/_mixin.scss';
+@import '../../styles/components/_variables.scss';
+
+.product-cocktails {
+    width: 100%;
+    padding-top: 15px;
+
+    @include media-breakpoint-up(md) {
+        width: 100%;   
+    }
+    
+    @include media-breakpoint-up(lg) {
+        padding-left: 30px;
+    }
+
+    .title{
+        margin-bottom: 15px;
+    }
+
+    .cocktails {
+        display: grid;
+
+        @include media-breakpoint-up(md) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 15px;
+        }
+
+        @include media-breakpoint-up(xl) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .cocktail {
+        display: block;
+        width: 100%;
+        height: calc(100vw - 30px);
+        margin-bottom: 20px;
+
+        @include media-breakpoint-up(md) {
+            height: calc(50vw - 20px);   
+        }
+
+        @include media-breakpoint-up(lg) {
+            height: calc(50vw - 130px);   
+        }
+
+        @include media-breakpoint-up(xl) {
+            height: 320px;   
+        }
+
+        &-img {
+            width: 100%;
+            height: calc(100% - 40px);
+            margin-bottom: 5px;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &-name {
+            text-align: center;
+        }
+
+    }
+}

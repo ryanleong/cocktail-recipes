@@ -7,6 +7,8 @@ import CocktailsByProduct from '../cocktails/cocktails-by-product';
 
 import { fetchProduct } from '../../actions';
 
+import './product.scss';
+
 class Product extends Component {
 
     componentDidMount() {
@@ -31,11 +33,10 @@ class Product extends Component {
         }
 
 
-
-        const product = this.props.products[id];
+        const product = this.props.products[id]; // get current product
 
         return(
-            <div>
+            <div className="product-single cont">
                 <ProductDetails data={product} />
                 <CocktailsByProduct data={product} />
             </div>

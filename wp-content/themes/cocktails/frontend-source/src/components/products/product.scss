@@ -1,0 +1,34 @@
+@import '../../styles/libs/_mixin.scss';
+@import '../../styles/components/_variables.scss';
+
+.product-single {
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+    }
+
+    .product {
+        &-details {
+            position: relative;
+            top: auto;
+            left: auto;
+            height: auto;
+            background-color: transparent;
+            padding: 10px 0 0 0;
+            opacity: 1;
+        }
+
+        &-name, &-distiller {
+            color: $blue;
+        }
+
+        @include media-breakpoint-up(lg) {
+            width: 300px;
+
+            &-img {
+                height: 330px;
+            }
+
+        }
+    }
+}

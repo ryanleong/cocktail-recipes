@@ -18,16 +18,18 @@ class Products extends Component {
     renderProducts() {
         
         const arrayFromObj = _.values(this.props.products); // convert object to array
-        const sections = _.chunk(arrayFromObj, 10); // Split into chunks of 10 (multi dimensional array)
+        const sections = _.chunk(arrayFromObj, 10); // Split into chunks of 10 (2 dimensional array)
         
         return _.map(sections, (productWrapper, index) => { // Interate throw top level array
 
             return (
-                <div className="products-wrapper">
+                <div className="products-wrapper" key={index}>
                     { 
                         _.map(productWrapper, product => { // interate through 2nd level array
                             return (
-                                <ProductDetails data={product} key={product.id} />
+                                <Link to={`/${product.id}`} className="product-link" key={product.id}>
+                                    <ProductDetails data={product} />
+                                </Link>
                             )
                         })
                     }

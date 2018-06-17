@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { fetchCocktails } from '../../actions';
 
+import './cocktails-by-product.scss';
 
 class CocktailsByProduct extends Component {
 
@@ -16,9 +17,15 @@ class CocktailsByProduct extends Component {
     renderCocktailsList() {
         return _.map(this.props.cocktails, cocktail => {
             return (
-                <li key={cocktail.id}>
-                    <Link to={`/cocktails/${cocktail.id}`}>{cocktail.acf.name}</Link>
-                </li>
+                <Link to={`/cocktails/${cocktail.id}`} key={cocktail.id} className="cocktail">
+                    <div className="cocktail-img">
+                        <img src="http://via.placeholder.com/350x150" alt="" />
+                    </div>
+
+                    <h3 className="cocktail-name">
+                        {cocktail.acf.name}
+                    </h3>
+                </Link>
             )
         });
     }
@@ -37,12 +44,12 @@ class CocktailsByProduct extends Component {
 
 
         return(
-            <div>
-                Cocktails
+            <div className="product-cocktails">
+                <h2 className="title">Cocktails</h2>
 
-                <ul>
+                <div className="cocktails">
                     {this.renderCocktailsList()}
-                </ul>
+                </div>
             </div>
         );
     }
