@@ -98,6 +98,10 @@ html, body, body * {
 	@include lineheight($base-font-size, 1.35);
 }
 
+h1 {
+	font-family: 'Appareo';
+}
+
 h2, h3, h4, h5 {
 	font-family: 'Livory', sans-serif;
 }

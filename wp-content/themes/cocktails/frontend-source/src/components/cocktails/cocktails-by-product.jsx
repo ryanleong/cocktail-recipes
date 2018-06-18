@@ -16,10 +16,17 @@ class CocktailsByProduct extends Component {
 
     renderCocktailsList() {
         return _.map(this.props.cocktails, cocktail => {
+
+            let cocktailImg = <img src="http://cocktails.spiritandpenance.com/wp-content/uploads/2018/06/snp_00061-giniversity-melbourne-gin-company-melbourne-moonshine.jpg" alt=""/>;
+
+            if(cocktail.acf.image) {
+                cocktailImg = <img src={cocktail.acf.image} alt=""/>
+            }
+
             return (
                 <Link to={`/cocktails/${cocktail.id}`} key={cocktail.id} className="cocktail">
                     <div className="cocktail-img">
-                        <img src="http://via.placeholder.com/350x150" alt="" />
+                        {cocktailImg}
                     </div>
 
                     <h3 className="cocktail-name">

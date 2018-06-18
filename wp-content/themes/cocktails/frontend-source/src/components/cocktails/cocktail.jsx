@@ -4,6 +4,8 @@ import _ from 'lodash';
 
 import { fetchCocktail } from '../../actions';
 
+import './cocktail.scss';
+
 class Cocktail extends Component {
 
     componentDidMount() {
@@ -43,16 +45,34 @@ class Cocktail extends Component {
         }
 
         const cocktail = this.props.cocktails[id];
+        
+        let heroImg = <img src="http://cocktails.spiritandpenance.com/wp-content/uploads/2018/06/snp_00061-giniversity-melbourne-gin-company-melbourne-moonshine.jpg" alt=""/>;
+
+        if(cocktail.acf.image) {
+            heroImg = <img src={cocktail.acf.image} alt=""/>
+        }
 
         return(
-            <div>
-                <h1>{cocktail.acf.name}</h1>
+            <div className="cocktail-cont">
 
-                <h3>Ingredients</h3>
-                {this.renderIngredients(cocktail)}
+                <div className="cocktail-cont__hero">
+                    {heroImg}
+                </div>
 
-                <h3>Instructions</h3>
-                <p>{cocktail.acf.instructions}</p>
+                <div className="cont">
+                    <h1 className="cocktail-cont__name">{cocktail.acf.name}</h1>
+
+                    <h3>Ingredients</h3>
+                    <p className="cocktail-cont__ingredients">
+                        {this.renderIngredients(cocktail)}
+                    </p>
+
+                    <h3>Instructions</h3>
+                    <p className="cocktail-cont__instructions">
+                        {cocktail.acf.instructions}
+                    </p>
+                </div>
+
             </div>
         );
     }
