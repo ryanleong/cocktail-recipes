@@ -55,9 +55,12 @@ class Products extends Component {
         return (
             <div id="page-wrapper">
 
-                {/* <div className="products-header">
-                    <h1>Cocktails for your Spirits</h1>
-                </div> */}
+                <div className="products-header">
+                    <img src="http://cocktails.spiritandpenance.com/wp-content/uploads/2018/06/snp_00061-giniversity-melbourne-gin-company-melbourne-moonshine.jpg" alt=""/>
+
+                    <div className="overlay"></div>
+                    <h1>Cocktails</h1>
+                </div>
 
                 <div className="products cont alt">
                     {this.renderProducts()}
