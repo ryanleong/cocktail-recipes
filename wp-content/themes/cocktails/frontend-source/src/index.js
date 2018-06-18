@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import rootReducer from './reducers';
 
@@ -29,13 +30,27 @@ ReactDOM.render(
 
     <Provider store={createStoreWithMiddleware(rootReducer)}>
         <BrowserRouter>
-            <Switch>
+            {/* <Switch>
                 <Route path="/cocktails/:id" component={Cocktail} />
                 <Route path="/cocktails" component={Cocktails} />
                 <Route path="/:id" component={Product} />
                 <Route path="/" component={Products} />
-            </Switch>
+            </Switch> */}
 
+            <Route render={({ location }) => (
+
+                <TransitionGroup>
+                    <CSSTransition key={location.key} classNames="fade" timeout={400}>
+                        <Switch>
+                            <Route path="/cocktails/:id" component={Cocktail} />
+                            <Route path="/cocktails" component={Cocktails} />
+                            <Route path="/:id" component={Product} />
+                            <Route path="/" component={Products} />
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
+
+            )} />
         </BrowserRouter>
     </Provider>
 
