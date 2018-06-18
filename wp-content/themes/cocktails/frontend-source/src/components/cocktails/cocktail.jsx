@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 
+import Error404 from '../errors/error-404';
+
 import { fetchCocktail } from '../../actions';
 
 import './cocktail.scss';
@@ -34,7 +36,7 @@ class Cocktail extends Component {
 
         if (this.props.cocktails.error) {
             return (
-                <div>Unable to load data from server.</div>
+                <Error404 />
             );
         }
 

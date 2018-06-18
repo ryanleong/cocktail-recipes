@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import ProductDetails from './product-details';
 import CocktailsByProduct from '../cocktails/cocktails-by-product';
+import Error404 from '../errors/error-404';
 
 import { fetchProduct } from '../../actions';
 
@@ -23,7 +24,7 @@ class Product extends Component {
 
         if (this.props.products.error) {
             return (
-                <div>Unable to load data from server.</div>
+                <Error404 />
             );
         }
         else if (!this.props.products[id]) {

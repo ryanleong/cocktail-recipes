@@ -1,0 +1,9 @@
+@import '../../styles/libs/_mixin.scss';
+@import '../../styles/components/_variables.scss';
+
+.error-404 {
+    padding-top: 100px;
+    h1, p {
+        text-align: center;
+    }
+}
