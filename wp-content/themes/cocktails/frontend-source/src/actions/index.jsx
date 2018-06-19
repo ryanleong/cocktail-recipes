@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BASE_URL = `http://cocktails.spiritandpenance.com/wp-json`
+export const BASE_URL = `https://cocktails.spiritandpenance.com/wp-json`
 
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 export const FETCH_PRODUCT = 'FETCH_PRODUCT';

@@ -56,7 +56,7 @@ class Products extends Component {
             <div id="page-wrapper">
 
                 <div className="products-header">
-                    <img src="http://cocktails.spiritandpenance.com/wp-content/uploads/2018/06/snp_00061-giniversity-melbourne-gin-company-melbourne-moonshine.jpg" alt=""/>
+                    <img src="wp-content/uploads/2018/06/snp_00061-giniversity-melbourne-gin-company-melbourne-moonshine.jpg" alt=""/>
 
                     <div className="overlay"></div>
                     <h1>Cocktails</h1>
